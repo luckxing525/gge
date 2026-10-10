@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GGE Corporate Partners</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="bar">
+  <div class="bar-in">
+    <a class="brand" href="#top">GGE at 25</a>
+    <nav class="chapters" id="chapters" aria-label="Sections">
+      <a href="#score"><span>1</span>Scoring</a>
+      <a href="#shortlist"><span>2</span>Top 10</a>
+      <a href="#types"><span>3</span>Leaders</a>
+      <a href="#warm"><span>4</span>Past donors</a>
+      <a href="#longlist"><span>5</span>All companies</a>
+    </nav>
+    <div class="tools">
+      <span class="saved" id="saved" role="status">Saved</span>
+      <button class="btn hide-sm" id="undoBtn" title="Undo your last change">Undo</button>
+      <button class="btn" id="exportBtn">Export to Excel</button>
+    </div>
+  </div>
+</div>
+
+<main id="top">
+
+<header class="hero">
+  <p class="kicker">Girls for Gender Equity and 180 Degrees Consulting NYU, Fall 2026</p>
+  <h1>Corporate partners for GGE's 25th anniversary</h1>
+  <p class="lede">We researched companies that could support GGE's 25th and scored 30 of them. Below is how the scoring works, the top 10, the leaders in each category, and the past donors to reach back out to.</p>
+  <div class="sieve card" id="sieve"></div>
+  <p class="hero-note" id="heroNote"></p>
+</header>
+
+<section class="ch tint" id="score">
+  <div class="ch-num">1</div>
+  <div class="prose">
+    <h2>How the scoring works</h2>
+    <p class="lede">Each company gets a score out of 5 based on four areas. Past donors get an extra 0.25. Move the sliders to see how the ranking changes.</p>
+  </div>
+  <div class="lenses">
+    <div>
+      <div class="lens-list" id="lensList"></div>
+      <div class="bonus card"><span>Past donor bonus</span><b class="num" id="bonusVal">+0.25</b></div>
+    </div>
+    <aside class="watch card">
+      <h3>Top 5</h3>
+      <p class="muted" style="margin:2px 0 0;font-size:14px">Orange dot = past donor</p>
+      <ol id="watchList"></ol>
+      <div class="weights-bar" id="weightsBar">
+        These changes only show on your screen.
+        <div class="row"><button class="btn solid small" id="saveWeights">Keep these weights</button><button class="btn small" id="resetWeights">Reset</button></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section class="ch" id="shortlist">
+  <div class="ch-num">2</div>
+  <div class="prose">
+    <h2>Top 10 prospects</h2>
+    <p class="lede">Click a company to see how it was scored.</p>
+  </div>
+  <div class="insights" id="insights"></div>
+  <div class="rank-list card">
+    <div class="rank-head"><div class="legend" id="lensLegend"></div></div>
+    <div id="rankList"></div>
+    <div class="rank-foot" id="rankFoot"></div>
+  </div>
+</section>
+
+<section class="ch tint" id="types">
+  <div class="ch-num">3</div>
+  <div class="prose">
+    <h2>Leaders in each category</h2>
+    <p class="lede">The highest-scoring companies of each type, and what to ask that type of company for.</p>
+  </div>
+  <div class="arch" id="arch"></div>
+</section>
+
+<section class="ch" id="warm">
+  <div class="ch-num">4</div>
+  <div class="prose">
+    <h2>Past donors</h2>
+    <p class="lede" id="warmLede">These companies have given to GGE before, so they're the easiest place to start.</p>
+  </div>
+  <div class="leads" id="leads"></div>
+  <div class="addline"><input id="newLead" placeholder="Add another past donor"><button class="btn" id="addLeadBtn">Add</button></div>
+</section>
+
+<section class="ch tint" id="longlist">
+  <div class="ch-num">5</div>
+  <div class="prose">
+    <h2>All companies</h2>
+    <p class="lede">Everything on our list so far. Click a company to add notes or contacts, or to score it.</p>
+  </div>
+  <div class="mx-tools">
+    <input type="text" id="mxSearch" placeholder="Search">
+    <select id="mxCat" aria-label="Category"><option value="">All categories</option></select>
+    <button class="btn" id="addOrgToggle">Add company</button>
+  </div>
+  <div class="addline" id="addOrgRow" hidden style="margin:0 0 12px"><input id="newOrg" placeholder="Company name"><select id="newOrgCat" style="width:auto" aria-label="Category"></select><button class="btn solid" id="addOrgBtn">Add</button></div>
+  <div class="mx-list card" id="mxBody"></div>
+  <p style="margin:12px 0 0"><label class="muted" style="font-size:14px"><input type="checkbox" id="mxArchived"> Show archived</label></p>
+</section>
+
+</main>
+
+<footer><div class="in"><p>Scoring model by Desiree Chen, Michelle Fang, Yik Fung, Lily Wang and Luck Xing, 180 Degrees Consulting NYU. This page uses the same scoring as the spreadsheet (version 4), so the Excel export matches what you see here.</p>
+<p style="margin-top:10px;font-size:13px">Edits on this site are saved in your browser only. <button class="link" style="color:inherit;font-size:13px" onclick="ggeResetLocal()">Reset to the original data</button></p></div></footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="dTitle"></aside>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<script src="data.js"></script>
+<script src="db-local.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
